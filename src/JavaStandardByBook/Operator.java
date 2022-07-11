@@ -1,4 +1,4 @@
-package Newknow;
+package JavaStandardByBook;
 
 public class Operator {
     // 시험준비가 아니기때문에 연산자는 간단하게 알아보겠습니다.

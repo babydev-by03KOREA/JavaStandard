@@ -1,4 +1,4 @@
-package Newknow;
+package JavaStandardByBook;
 
 public class array {
 //    0부터 배열길이 -1까지

@@ -1,4 +1,4 @@
-package Newknow;
+package JavaStandardByBook;
 
 import java.util.*;
 
