@@ -12,7 +12,7 @@ public class NonDB_Search {
         String ILang = sc.nextLine();
         for (int i = 0; i<Language.length; i++){
             if (ILang.equals(Language[i])) {
-                System.out.print("해당 언어의 라이브러리를 입력하세요. >");
+                System.out.print("해당 언어의 라이브러리를 입력하세요. > ");
                 String ILib = sc.nextLine();
                 Language[i] = ILib;
                 io = true;

@@ -7,6 +7,7 @@ class Calculator {
         this.left = left;
         this.right = right;
     }
+//  left와 right에 주입시킨다!
 
     public void sum() {
         System.out.println(this.left + this.right);
