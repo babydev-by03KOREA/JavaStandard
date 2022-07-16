@@ -7,6 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//    What is Map?
+//    Key와 Value를 한 쌍으로 value를 얻어내는것.
+//    Map은 리스트나 배열처럼 순차적으로 해당 요소 값을 구하지 않는다.
+
 public class Mapping {
     public static void main(String[] args) {
 //      HashMap<Key, Value>
