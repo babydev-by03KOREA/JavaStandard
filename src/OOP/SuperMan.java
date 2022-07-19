@@ -10,40 +10,54 @@ class Child extends Parent {
     void childMethod(){
         System.out.println("X = "+ x);
         System.out.println("this.x = " + this.x);
+        //      super은 상속받은 Class를 가리킨다. (조상클래스)
         System.out.println("super.x = " + super.x);
     }
 }
 
-/* super는 자식 클래스가 부모 클래스로부터 상속받은 멤버를 참조할 때 사용하는 참조 변수이다.
-* super = 부모님 모시고와.   this = 동명이인 중에 지금 여기에 있는 박형주씨 나오세요.
-* 클래스 내의 맴버변수와 지역변수의 이름이 같은 경우 구분을 위해 this를 사용한다. */
+class Super {
+    protected int x = 10;
+    protected int y = 20;
 
-class Point {
-    int x = 10;
-    int y = 20;
-    /* 생성자의 첫줄에 다른 생성자를 호출하지 않았기 때문에
-    * 컴파일러가 이 부분에 super()을 호출합니다.
-    * 부모 클래스이므로 Object 클래스의 super()이 호출됩니다. */
-    Point(int x, int y) {
+    public Super(int x, int y){
         this.x = x;
         this.y = y;
     }
+//  public Super() {}   ==> 기본생성자를 생성함. / Class명과 동일한 메소드(생성자)
+//  이걸 잘 기억해둬야하는게 Spring에서 이런걸 xml파일이 대체하게됨. 개념을 모르면 못함..
 }
 
-class Point3D extends Point {
-    int z = 30;
-    /* 생성자 내부에서만 사용할 수 있고,
-    *  같은 클래스의 다른 생성자를 호출할 때 사용한다. */
-    Point3D() {
-//      같은 클래스에서 다른 생성자를 호출한다.
-//      메소드명이 클래스명과 동일하고 리턴 자료형을 정의하지 않는 메소드를 생성자(Constructor)라고 한다.
-        this(100, 200, 300);
+class SuperGirl extends Super {
+    protected int z = 30;
+
+    public SuperGirl(){
+        super(3,6);
+    }
+}
+
+class HandPhone {
+    protected String model;
+    protected String number;
+
+//    public HandPhone() {}
+    public HandPhone(String model, String number){
+        this.model = model;
+        this.number = number;
+    }
+}
+
+class FoldPhone extends HandPhone {
+    protected String Battery;
+
+//    public FoldPhone() {}
+    public FoldPhone(String model, String number, String Battery){
+//      부모클래스의 기본생성자를 Call!
+        super(model, number);
+        this.Battery = Battery;
     }
 
-    Point3D(int x, int y, int z) {
-//      부모 클래스의 Point(int x, int y)를 호출한다.
-        super(x,y);
-        this.z = z;
+    public void sout() {
+        System.out.println("핸드폰 모델: " + model + " 번호: " + number + " 베터리 :" + Battery);
     }
 }
 
@@ -51,9 +65,7 @@ public class SuperMan {
     public static void main(String[] args) {
         Child child = new Child();
         child.childMethod();
-        Point3D point3D = new Point3D();
-        System.out.println("point3d.x = " + point3D.x);
-        System.out.println("point3d.y = " + point3D.y);
-        System.out.println("point3d.z = " + point3D.z);
+        FoldPhone foldPhone = new FoldPhone("Iphone 12 Pro","A010003084", "3215mAh");
+        foldPhone.sout();
     }
 }
